@@ -1,0 +1,6 @@
+framework module ALWCategories {
+  umbrella header "ALWCategories-umbrella.h"
+
+  export *
+  module * { export * }
+}

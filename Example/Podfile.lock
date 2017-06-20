@@ -1,0 +1,35 @@
+PODS:
+  - ALWCategories (0.1.0)
+  - Expecta (1.0.5)
+  - Expecta+Snapshots (3.1.1):
+    - Expecta (~> 1.0)
+    - FBSnapshotTestCase/Core (~> 2.0)
+    - Specta (~> 1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Specta (1.0.6)
+
+DEPENDENCIES:
+  - ALWCategories (from `../`)
+  - Expecta
+  - Expecta+Snapshots
+  - FBSnapshotTestCase
+  - Specta
+
+EXTERNAL SOURCES:
+  ALWCategories:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ALWCategories: b4d972a5feea9bae7f9c13476e2ccea63d5a63dd
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
+
+PODFILE CHECKSUM: 102b4e37b0583162d0ba52df0bf847050b989ab7
+
+COCOAPODS: 1.2.1
