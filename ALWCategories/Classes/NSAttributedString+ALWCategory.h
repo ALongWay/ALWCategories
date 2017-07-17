@@ -12,9 +12,9 @@
 @interface NSAttributedString (ALWCategory)
 
 #pragma mark -
-+ (NSAttributedString *)getAttributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color;
++ (NSAttributedString *)attributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color;
 
-+ (NSAttributedString *)getAttributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color lineHeight:(CGFloat)lineHeight;
++ (NSAttributedString *)attributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color lineHeight:(CGFloat)lineHeight;
 
 #pragma mark -
 - (CGSize)attributedStringSizeWithMaxWidth:(CGFloat)maxWidth;

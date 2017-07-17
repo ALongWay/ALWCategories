@@ -11,7 +11,7 @@
 @implementation NSAttributedString (ALWCategory)
 
 #pragma mark -
-+ (NSAttributedString *)getAttributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color
++ (NSAttributedString *)attributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color
 {
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:string
                                   attributes:@{NSFontAttributeName : font,
@@ -20,7 +20,7 @@
     return attrStr;
 }
 
-+ (NSAttributedString *)getAttributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color lineHeight:(CGFloat)lineHeight
++ (NSAttributedString *)attributedStringWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color lineHeight:(CGFloat)lineHeight
 {
     if (!string) {
         return nil;

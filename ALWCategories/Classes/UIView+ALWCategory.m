@@ -7,20 +7,10 @@
 //
 
 #import "UIView+ALWCategory.h"
+#import "UIImage+ALWCategory.h"
 
 @implementation UIView (ALWCategory)
 
-- (void)setLayerShadowColor:(UIColor *)color offset:(CGSize)offset radius:(CGFloat)radius
-{
-    self.layer.shadowColor = color.CGColor;
-    self.layer.shadowOffset = offset;
-    self.layer.shadowRadius = radius;
-    self.layer.shadowOpacity = 1;
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-}
-
-#pragma mark -
 - (CGFloat)left {
     return self.frame.origin.x;
 }
@@ -116,4 +106,83 @@
     frame.size = size;
     self.frame = frame;
 }
+
+#pragma mark -
+- (void)setLayerBorderColor:(UIColor *)color borderWidth:(CGFloat)width cornerRadius:(CGFloat)radius
+{
+    if (color) {
+        [self.layer setBorderColor:color.CGColor];
+    }
+    
+    [self.layer setBorderWidth:width];
+    [self.layer setCornerRadius:radius];
+}
+
+- (void)setLayerShadowColor:(UIColor *)color offset:(CGSize)offset radius:(CGFloat)radius
+{
+    if (color) {
+        self.layer.shadowColor = color.CGColor;
+    }
+    
+    self.layer.shadowOffset = offset;
+    self.layer.shadowRadius = radius;
+    self.layer.shadowOpacity = 1;
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+}
+
+- (UIView *)addBlurEffectWithStyle:(ALWBlurEffectStyle)style
+{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        UIBlurEffectStyle blurStyle;
+        
+        switch (style) {
+            case ALWBlurEffectStyleExtraLight: {
+                blurStyle = UIBlurEffectStyleExtraLight;
+                break;
+            }
+            case ALWBlurEffectStyleLight: {
+                blurStyle = UIBlurEffectStyleLight;
+                break;
+            }
+            case ALWBlurEffectStyleDark: {
+                blurStyle = UIBlurEffectStyleDark;
+                break;
+            }
+        }
+        
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:blurStyle];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        effectView.frame = self.bounds;
+        [self addSubview:effectView];
+        
+        return effectView;
+    } else {
+        UIImage *originalImage = [UIImage getSnapshotWithView:self];
+        UIImage *blurImage;
+        
+        switch (style) {
+            case ALWBlurEffectStyleExtraLight: {
+                blurImage = [originalImage applyExtraLightEffect];
+                break;
+            }
+            case ALWBlurEffectStyleLight: {
+                blurImage = [originalImage applyLightEffect];
+                break;
+            }
+            case ALWBlurEffectStyleDark: {
+                blurImage = [originalImage applyDarkEffect];
+                break;
+            }
+        }
+        
+        UIImageView *effectView = [[UIImageView alloc] initWithFrame:self.bounds];
+        [effectView setImage:blurImage];
+        
+        [self addSubview:effectView];
+        
+        return effectView;
+    }
+}
+
 @end

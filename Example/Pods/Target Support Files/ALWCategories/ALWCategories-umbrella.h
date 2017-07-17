@@ -12,6 +12,7 @@
 
 #import "ALWCategories.h"
 #import "NSAttributedString+ALWCategory.h"
+#import "NSMutableAttributedString+ALWCategory.h"
 #import "NSObject+ALWCategory.h"
 #import "NSString+ALWCategory.h"
 #import "UIButton+ALWCategory.h"
