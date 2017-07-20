@@ -2,6 +2,14 @@ use_frameworks!
 
 target 'ALWCategories_Example' do
   pod 'ALWCategories', :path => '../'
+#  pod 'ALWCategories'
+#  pod 'ALWCoverBrowser'
+#  pod 'ALWPageControl'
+#  pod 'ALWStarComment'
+#  pod 'ALWCollectionViewLayout'
+#  pod 'ALWBaseViewController/ViewController'
+#  pod 'ALWStepper'
+#  pod 'ALWRefreshControl'
 
   target 'ALWCategories_Tests' do
     inherit! :search_paths

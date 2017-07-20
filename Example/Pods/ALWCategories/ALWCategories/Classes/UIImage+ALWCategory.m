@@ -34,58 +34,39 @@
 
 + (UIImage *)getImagePNGWithName:(NSString *)name;
 {
-    return [self getImageWithName:name];
+    return [self getImageWithName:name type:@"png"];
 }
 
-+ (UIImage *)getImageWithName:(NSString *)name
++ (UIImage *)getImageWithName:(NSString *)name type:(NSString *)type
 {
-    return [self getImageWithName:name inBundle:[NSBundle mainBundle]];
+    return [self getImageWithName:name type:type inBundle:[NSBundle mainBundle]];
 }
 
-+ (UIImage *)getImageWithName:(NSString *)name bundleName:(NSString *)bundleName
++ (UIImage *)getImageWithName:(NSString *)name type:(NSString *)type bundleName:(NSString *)bundleName
 {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName.stringByDeletingPathExtension ofType:@"bundle"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     
-    return [self getImageWithName:name inBundle:bundle];
+    return [self getImageWithName:name type:type inBundle:bundle];
 }
 
-+ (UIImage *)getImageWithName:(NSString *)name inBundle:(NSBundle *)bundle
++ (UIImage *)getImageWithName:(NSString *)name type:(NSString *)type inBundle:(NSBundle *)bundle
 {
-    NSString *ext = name.pathExtension;
-    NSArray *extArray;
+    NSString *ext = type;
+    
+    if (!type || [type isEqualToString:@""]) {
+        ext = @"png";
+    }
     
     NSString *fullName = name;
-    NSString *fileNameWithoutExt = name;
-    
-    if (ext && ![ext isEqualToString:@""]) {
-        fileNameWithoutExt = name.stringByDeletingPathExtension;
-        extArray = @[ext];
-    }else{
-        extArray = @[@"png", @"jpg", @"jpeg", @"bmp", @"webp"];
-    }
-    
     NSInteger scale = [UIScreen mainScreen].scale;
     if (scale > 1) {
-        fullName = [fileNameWithoutExt stringByAppendingString:[NSString stringWithFormat:@"@%dx", (int)scale]];
+        fullName = [name stringByAppendingString:[NSString stringWithFormat:@"@%dx", (int)scale]];
     }
     
-    NSString *filePath;
-    
-    for (NSString *tempExt in extArray) {
-        filePath = [bundle pathForResource:fullName ofType:tempExt];
-        
-        if (filePath) {
-            break;
-        }else{
-            if (![fileNameWithoutExt isEqualToString:fullName]) {
-                filePath = [bundle pathForResource:fileNameWithoutExt ofType:tempExt];
-                
-                if (filePath) {
-                    break;
-                }
-            }
-        }
+    NSString *filePath = [bundle pathForResource:fullName ofType:ext];
+    if (!filePath) {
+        filePath = [bundle pathForResource:name ofType:ext];
     }
     
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];

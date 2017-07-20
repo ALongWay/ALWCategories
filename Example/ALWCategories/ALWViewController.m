@@ -69,6 +69,7 @@
     [test5.layer setBackgroundColor:[UIColor blackColor].CGColor];
     [test5 setImage:image];
     [self.view addSubview:test5];
+    
 }
 
 - (void)didReceiveMemoryWarning

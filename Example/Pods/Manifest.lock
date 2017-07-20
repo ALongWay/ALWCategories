@@ -1,5 +1,5 @@
 PODS:
-  - ALWCategories (0.1.0)
+  - ALWCategories (0.1.1)
   - Expecta (1.0.5)
   - Expecta+Snapshots (3.1.1):
     - Expecta (~> 1.0)
@@ -24,12 +24,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ALWCategories: 61e69e2d7a466768343ac7a8557ffc4befa92cb1
+  ALWCategories: 3a7dcc5ba270a229a57580d2c0fd48950592294a
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
 
-PODFILE CHECKSUM: 6a6f452b4201f2910c281f2ce020c3908b9f0c88
+PODFILE CHECKSUM: '05959540db2d4db620c8f48b3f3b04642c6034c1'
 
 COCOAPODS: 1.2.1
