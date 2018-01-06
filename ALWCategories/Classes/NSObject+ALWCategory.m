@@ -11,7 +11,7 @@
 
 @implementation NSObject (ALWCategory)
 
-+(void)swizzleOriginalSelector:(SEL)originalSelector withNewSelector:(SEL)newSelector
++ (void)swizzleOriginalSelector:(SEL)originalSelector withNewSelector:(SEL)newSelector
 {
     Class selfClass = [self class];
     

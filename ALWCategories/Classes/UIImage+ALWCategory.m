@@ -288,7 +288,7 @@
 
     CGContextSaveGState(context);
     [path addClip];
-    CGContextDrawImage(context, rect, self.CGImage);
+    [self drawInRect:rect];
     CGContextRestoreGState(context);
     
     if (borderWidth > 0) {
@@ -321,7 +321,7 @@
 
     CGContextSaveGState(context);
     [bezierPath addClip];
-    CGContextDrawImage(context, rect, self.CGImage);
+    [self drawInRect:rect];
     CGContextRestoreGState(context);
 
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

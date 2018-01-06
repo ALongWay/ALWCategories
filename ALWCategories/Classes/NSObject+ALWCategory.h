@@ -16,6 +16,6 @@
  *  @param originalSelector 原方法
  *  @param newSelector      新方法
  */
-+(void)swizzleOriginalSelector:(SEL)originalSelector withNewSelector:(SEL)newSelector;
++ (void)swizzleOriginalSelector:(SEL)originalSelector withNewSelector:(SEL)newSelector;
 
 @end

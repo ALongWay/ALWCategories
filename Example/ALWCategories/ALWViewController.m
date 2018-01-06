@@ -22,6 +22,10 @@
     
     UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
     [colorView setBackgroundColor:[UIColor greenColor]];
+    UILabel *colorLabel = [[UILabel alloc] initWithFrame:colorView.bounds];
+    [colorLabel setText:@"绿色"];
+    [colorView addSubview:colorLabel];
+    
     UIImage *image = [UIImage getSnapshotWithView:colorView];
 
     UIImageView *test1 = [[UIImageView alloc] initWithFrame:colorView.bounds];
@@ -41,7 +45,7 @@
     [self.view addSubview:test2];
 
     
-    image = [image clipImageWithRoundCornerRadius:10 corners:UIRectCornerTopLeft | UIRectCornerBottomRight borderWidth:2 borderColor:[UIColor redColor]];
+    image = [image clipImageWithRoundCornerRadius:10 corners:UIRectCornerTopLeft | UIRectCornerTopRight borderWidth:2 borderColor:[UIColor redColor]];
     
     UIImageView *test3 = [[UIImageView alloc] initWithFrame:colorView.bounds];
     test3.top = test2.bottom + 10;
