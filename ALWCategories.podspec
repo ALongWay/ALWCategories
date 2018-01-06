@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ALWCategories'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Some useful categories.'
   s.homepage         = 'https://github.com/ALongWay/ALWCategories'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
